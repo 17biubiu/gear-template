@@ -1,3 +1,4 @@
+var path = require('path');
 var cooking = require('cooking');
 var config = require('./build/config');
 var md = require('markdown-it')();
@@ -5,7 +6,8 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var striptags = require('./build/strip-tags');
 var slugify = require('transliteration').slugify;
 var isProd = process.env.NODE_ENV === 'production';
-var isPlay = !!process.env.PLAY_ENV;
+
+var base = process.cwd();
 
 function convert(str) {
     str = str.replace(/(&#x)(\w{4});/gi, function ($0) {
@@ -14,18 +16,15 @@ function convert(str) {
     return str;
 }
 
-
-
 cooking.set({
-    entry: isProd ? {
-        docs: './src/entry.js',
-        // 'element-ui': './src/index.js'
-    } : (isPlay ? './src/play.js' : './src/entry.js'),
+    entry: {
+        docs:  path.join(base, 'node_modules/@hfe/gear-template/src/entry.js'),
+    } ,
     dist: './dist/',
     template: [{
         template: './index.tpl',
         filename: './index.html',
-        favicon: './src/icon.png'
+        favicon: path.join(base, 'node_modules/@hfe/gear-template/src/icon.png')
     }],
     publicPath: process.env.CI_ENV || '',
     hash: true,
@@ -38,7 +37,6 @@ cooking.set({
     minimize: true,
     chunk: isProd ? {
         'common': {
-            // name: ['element-ui', 'manifest'],
             name: ['manifest']
         }
     } : false,
@@ -136,5 +134,11 @@ if (isProd) {
 // cooking.add('plugin.CopyWebpackPlugin', new CopyWebpackPlugin([{
 //     from: 'src/versions.json'
 // }]));
+
+
+
 cooking.add('vue.preserveWhitespace', false);
+
+
+
 module.exports = cooking.resolve();

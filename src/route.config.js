@@ -1,5 +1,12 @@
 import navConfig from './nav.config.json';
 
+import cmpNavConfig from '../../../../src/nav.config.json';
+
+
+
+if (Array.isArray(navConfig[1].groups)) {
+  navConfig[1].groups = cmpNavConfig.groups;
+}
 
 
 const LOAD_MAP = name => {
@@ -17,8 +24,17 @@ const LOAD_DOCS_MAP = path => {
     'doc-map');
 };
 
+const LOAD_DOCS_MAP__CMP = path => {
+  return r => require.ensure([], () =>
+    r(require(`../../../../src/docs/${path}.md`)),
+    'doc-map');
+};
+
 const loadDocs = function (path) {
-  return LOAD_DOCS_MAP(path);
+  if(path==='installation'){
+    return LOAD_DOCS_MAP(path);
+  }
+  return LOAD_DOCS_MAP__CMP(path);
 };
 
 const registerRoute = (navConfig) => {
@@ -84,11 +100,10 @@ let indexRoute = {
 route.push(indexRoute);
 
 
-console.log(route)
 
-let defaultPath = '/component/table-generator';
+let defaultPath;
 
-defaultPath="/"
+defaultPath = "/"
 
 route = route.concat([{
   path: '/',
