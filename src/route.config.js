@@ -1,5 +1,7 @@
 import navConfig from './nav.config.json';
 
+
+
 const LOAD_MAP = name => {
   return r => require.ensure([], () =>
     r(require(`./pages/${name}.vue`)),
