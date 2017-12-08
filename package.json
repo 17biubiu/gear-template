@@ -8,18 +8,15 @@
     "dev": "cooking watch -c ./cooking.conf.js -p",
     "build": "rimraf dist & cooking build -c ./cooking.conf.js -p"
   },
+  "peerDependencies": {
+    "vue": "^2.5.2"
+  },
   "dependencies": {
     "element-ui": "^2.0.5",
     "algoliasearch": "^3.24.5",
     "highlight.js": "^9.3.0",
     "throttle-debounce": "^1.0.1",
-    "perspective.js": "^1.0.0"
-  },
-  "peerDependencies": {
-    "vue": "^2.5.2"
-  },
-  "devDependencies": {
-
+    "perspective.js": "^1.0.0",
     "babel-cli": "^6.14.0",
     "babel-core": "^6.14.0",
     "babel-helper-vue-jsx-merge-props": "^2.0.0",
