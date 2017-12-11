@@ -8,9 +8,9 @@
   dependencies:
     object-set "^1.0.1"
 
-"@hfe/gear-publish-plugin@^1.0.2":
-  version "1.0.2"
-  resolved "http://r.npm.sankuai.com/@hfe/gear-publish-plugin/download/@hfe/gear-publish-plugin-1.0.2.tgz#e6d925b5483965ad9e4c062acebaf60500bec5cd"
+"@hfe/gear-publish-plugin@^1.0.4":
+  version "1.0.4"
+  resolved "http://r.npm.sankuai.com/@hfe/gear-publish-plugin/download/@hfe/gear-publish-plugin-1.0.4.tgz#0808432e39b4ed2292348708fca31d61219e2094"
   dependencies:
     async "^2.6.0"
     colors "^1.1.2"
