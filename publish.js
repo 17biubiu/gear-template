@@ -2,7 +2,7 @@ var path = require('path');
 var cooking = require('cooking');
 var config = require('./build/config');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
-var GearPublishPlugin = require('./gear-publish-plugin');
+var GearPublishPlugin = require('@hfe/gear-publish-plugin');
 
 
 
@@ -27,7 +27,7 @@ cooking.set({
     minimize: true,
     extractCSS: true,
     alias: config.alias,
-    extends: ['vue2', ],
+    extends: ['vue2'],
     postcss: config.postcss
 });
 
@@ -54,10 +54,11 @@ cooking.add('plugin.CopyWebpackPlugin', new CopyWebpackPlugin([{
     to: "../docs"
 }]));
 
-const uploadPath = packageJson + path.sep + packageJson.version;
-// cooking.add('plugin.GearPublishPlugin', new GearPublishPlugin({
-//     submit: '', //url,
-//     upload: uploadPath, //upload path
-// }));
+const uploadPath = packageJson.name + path.sep + packageJson.version;
+
+cooking.add('plugin.GearPublishPlugin', new GearPublishPlugin({
+    submitUrl: '', //url,
+    uploadUrl: uploadPath, //upload path
+}));
 
 module.exports = cooking.resolve();
