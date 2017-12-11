@@ -9,47 +9,12 @@ import MainFooter from './components/footer.vue';
 import MainHeader from './components/header.vue';
 import SideNav from './components/side-nav';
 import FooterNav from './components/footer-nav';
-import {
-  getFileName,
-  getCamelCase,
-  getMidLineCase
-} from './utils';
 
 
-let CMPs = require.context('../../../../src/components');
-
-// let replacePattern = new RegExp('^' + options.prefix);
+let cmps = require.context('../../../../src/components');
 
 
-CMPs.keys().forEach(key => {
-  if (key.indexOf('.vue') < 0) { //重复解析
-    return;
-  }
-  let name =
-    getFileName(key)
-    .replace(/\.vue/, '')
-    // .replace(replacePattern, '')
-    .replace(/-/, '');
-
-  name = name.charAt(0).toLowerCase() + name.slice(1);
-
-
-  let cc = getCamelCase(name);
-  let ml = getMidLineCase(name);
-  let component = CMPs(key);
-  if (CMPs(key).default) {
-    component = CMPs(key).default;
-  }
-  if (cc === ml) {
-    Vue.component(cc, component);
-  } else {
-    Vue.component(cc, component);
-    Vue.component(ml, component);
-  }
-});
-
-
-
+Vue.use(cmps);
 
 Vue.use(Element);
 Vue.use(VueRouter);

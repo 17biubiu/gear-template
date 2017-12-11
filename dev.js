@@ -51,6 +51,13 @@ if (!process.env.CI_ENV) {
     cooking.add('output.publicPath', '');
 }
 
+cooking.add('loader.js', {
+    test: /\.js$/,
+    use: [{
+        loader: 'babel-loader'
+    }],
+});
+
 cooking.add('loader.md', {
     test: /\.md$/,
     loader: 'vue-markdown-loader'
