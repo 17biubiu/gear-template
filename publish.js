@@ -57,7 +57,7 @@ cooking.add('plugin.CopyWebpackPlugin', new CopyWebpackPlugin([{
 const uploadPath = packageJson.name + path.sep + packageJson.version;
 
 cooking.add('plugin.GearPublishPlugin', new GearPublishPlugin({
-    submitUrl: '', //url,
+    submitUrl: 'http://10.4.233.175:7001/api/v1/components/update', //url,
     uploadUrl: uploadPath, //upload path
 }));
 
