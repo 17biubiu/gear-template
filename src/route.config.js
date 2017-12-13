@@ -1,6 +1,6 @@
 import navConfig from './nav.config.json';
 
-import cmpNavConfig from '../../../../src/nav.config.json';
+import cmpNavConfig from '../../../src/nav.config.json';
 
 
 
@@ -26,7 +26,7 @@ const LOAD_DOCS_MAP = path => {
 
 const LOAD_DOCS_MAP__CMP = path => {
   return r => require.ensure([], () =>
-    r(require(`../../../../src/docs/${path}.md`)),
+    r(require(`../../../src/docs/${path}.md`)),
     'doc-map');
 };
 
