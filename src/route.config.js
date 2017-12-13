@@ -2,7 +2,7 @@ import navConfig from './nav.config.json';
 
 import cmpNavConfig from '../../../../src/nav.config.json';
 
-
+import  Docs  from  './docs';
 
 if (Array.isArray(navConfig[1].groups)) {
   navConfig[1].groups = cmpNavConfig.groups;
@@ -19,9 +19,8 @@ const load = function (path) {
 };
 
 const LOAD_DOCS_MAP = path => {
-  return r => require.ensure([], () =>
-    r(require(`./docs/${path}.md`)),
-    'doc-map');
+  
+  return  Docs(path)
 };
 
 const LOAD_DOCS_MAP__CMP = path => {
