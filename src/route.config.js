@@ -4,7 +4,7 @@ import cmpNavConfig from '../../../src/nav.config.json';
 
 import Docs from './docs';
 
-import Docs_CMP from '../../../docs';
+import Docs_CMP from '../../../src/docs';
 
 if (Array.isArray(navConfig[1].groups)) {
   navConfig[1].groups = cmpNavConfig.groups;
