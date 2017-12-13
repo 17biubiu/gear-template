@@ -19,10 +19,12 @@ function convert(str) {
 
 cooking.set({
     entry: {
-        dll: ["./src/docs/index.js"]
+        dll: ["./src/docs/index.js"],
+        lib:["element-ui"]
     },
     dist: './manifest/',
     library: '[name]',
+    filename: '[name].dll.js',
     publicPath: process.env.CI_ENV || '',
     // hash: true,
     minimize: true,

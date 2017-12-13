@@ -7,6 +7,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var striptags = require('./build/strip-tags');
 var slugify = require('transliteration').slugify;
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 var isProd = process.env.NODE_ENV === 'production';
 
 var base = process.cwd();
@@ -151,14 +152,13 @@ cooking.add('plugin.DllReferencePlugin', new webpack.DllReferencePlugin({
 cooking.add('plugin.HtmlWebpackPlugin', new HtmlWebpackPlugin({
     filename: 'index.html',
     template: './index.tpl',
-    chunks:['dll','docs'],
+    chunks: ['dll', 'docs'],
     favicon: path.join(base, 'node_modules/gear-template/src/icon.png')
 }));
 
-cooking.add('plugin.CopyWebpackPlugin', new CopyWebpackPlugin([{
-    from: './manifest/',
-    to: './'
-}]));
+cooking.add('plugin.AddAssetHtmlPlugin', new AddAssetHtmlPlugin({
+    filepath: require.resolve('./manifest/*.dll.js')
+}));
 
 
 
