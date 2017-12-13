@@ -18,13 +18,13 @@ function convert(str) {
 
 cooking.set({
     entry: {
-        docs:  path.join(base, 'node_modules/@hfe/gear-template/src/entry.js'),
+        docs:  path.join(base, 'node_modules/gear-template/src/entry.js'),
     } ,
     dist: './dist/',
     template: [{
         template: './index.tpl',
         filename: './index.html',
-        favicon: path.join(base, 'node_modules/@hfe/gear-template/src/icon.png')
+        favicon: path.join(base, 'node_modules/gear-template/src/icon.png')
     }],
     publicPath: process.env.CI_ENV || '',
     hash: true,
