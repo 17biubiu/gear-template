@@ -18,8 +18,8 @@ function convert(str) {
 
 cooking.set({
     entry: {
-        docs:  path.join(base, 'node_modules/gear-template/src/entry.js'),
-    } ,
+        docs: path.join(base, 'node_modules/gear-template/src/entry.js'),
+    },
     dist: './dist/',
     template: [{
         template: './index.tpl',
@@ -42,7 +42,7 @@ cooking.set({
     } : false,
     extractCSS: true,
     alias: config.alias,
-    extends: ['vue2',],
+    extends: ['vue2', ],
     postcss: config.postcss
 });
 
@@ -51,7 +51,12 @@ if (!process.env.CI_ENV) {
     cooking.add('output.publicPath', '');
 }
 
-
+if (isProd) {
+    cooking.add('loader.js', {
+        test: /\.js$/,
+        loader: 'babel-loader'
+    });
+}
 
 cooking.add('loader.md', {
     test: /\.md$/,

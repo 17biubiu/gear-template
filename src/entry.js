@@ -10,6 +10,7 @@ import MainHeader from './components/header.vue';
 import SideNav from './components/side-nav';
 import FooterNav from './components/footer-nav';
 
+
 Vue.use(Element);
 Vue.use(VueRouter);
 
