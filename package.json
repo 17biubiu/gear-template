@@ -1,6 +1,6 @@
 {
   "name": "gear-template",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "组件库管理",
   "main": "index.js",
   "scripts": {
