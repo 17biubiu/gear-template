@@ -9,9 +9,6 @@ import MainFooter from './components/footer.vue';
 import MainHeader from './components/header.vue';
 import SideNav from './components/side-nav';
 import FooterNav from './components/footer-nav';
-import cmps from '../../../../src/components';
-
-Vue.use(cmps);
 
 Vue.use(Element);
 Vue.use(VueRouter);
