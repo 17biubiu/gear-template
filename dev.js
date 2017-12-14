@@ -143,11 +143,11 @@ if (isProd) {
 }
 
 
-cooking.add('plugin.DllReferencePlugin', new webpack.DllReferencePlugin({
-    context: base,
-    manifest: require(path.join(base, './manifest/manifest.json')), // 指定manifest.json
-    name: 'dll',
-}));
+// cooking.add('plugin.DllReferencePlugin', new webpack.DllReferencePlugin({
+//     context: base,
+//     manifest: require(path.join(base, './manifest/manifest.json')), // 指定manifest.json
+//     name: 'dll',
+// }));
 
 cooking.add('plugin.HtmlWebpackPlugin', new HtmlWebpackPlugin({
     filename: 'index.html',
@@ -156,9 +156,9 @@ cooking.add('plugin.HtmlWebpackPlugin', new HtmlWebpackPlugin({
     favicon: path.join(base, 'node_modules/gear-template/src/icon.png')
 }));
 
-cooking.add('plugin.AddAssetHtmlPlugin', new AddAssetHtmlPlugin({
-    filepath: require.resolve('./manifest/*.dll.js')
-}));
+// cooking.add('plugin.AddAssetHtmlPlugin', new AddAssetHtmlPlugin({
+//     filepath: require.resolve('./manifest/*.dll.js')
+// }));
 
 
 

@@ -20,7 +20,7 @@ function convert(str) {
 cooking.set({
     entry: {
         dll: ["./src/docs/index.js"],
-        lib:["element-ui"]
+        lib: ["element-ui"]
     },
     dist: './manifest/',
     library: '[name]',
