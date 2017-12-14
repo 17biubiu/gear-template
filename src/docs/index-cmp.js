@@ -1,1 +1,1 @@
-export default path => require(`../../../${path}/index`).default(path);
+export default path => require(`../../../../src/docs/${path}/index`).default(path);

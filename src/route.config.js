@@ -82,9 +82,6 @@ const registerRoute = (navConfig) => {
 };
 
 
-
-
-
 let route = registerRoute(navConfig);
 
 
