@@ -8,9 +8,17 @@ var striptags = require('./build/strip-tags');
 var slugify = require('transliteration').slugify;
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+var GearPublishPlugin = require('gear-publish-plugin');
+
+
 var isProd = process.env.NODE_ENV === 'production';
 
 var base = process.cwd();
+
+var packageJson = require(path.join(base, './package.json'));
+
+
+
 
 function convert(str) {
     str = str.replace(/(&#x)(\w{4});/gi, function ($0) {
@@ -38,7 +46,7 @@ cooking.set({
         log: false,
         publicPath: '/'
     },
-    minimize: true,
+    minimize: false,
     // chunk: isProd ? {
     //     'common': {
     //         name: ['manifest']
@@ -158,6 +166,14 @@ cooking.add('plugin.HtmlWebpackPlugin', new HtmlWebpackPlugin({
 
 // cooking.add('plugin.AddAssetHtmlPlugin', new AddAssetHtmlPlugin({
 //     filepath: require.resolve('./manifest/*.dll.js')
+// }));
+
+
+// const uploadPath = packageJson.name + path.sep + packageJson.version;
+
+// cooking.add('plugin.GearPublishPlugin', new GearPublishPlugin({
+//     submitUrl: 'http://10.4.233.175:7001/api/v1/components/update', //url,
+//     uploadUrl: uploadPath, //upload path
 // }));
 
 
