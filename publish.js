@@ -26,26 +26,9 @@ cooking.set({
         docs: path.join(base, 'node_modules/gear-template/src/entry.js')
     },
     dist: './dist/',
-    // template: {
-    //     './index.html':{
-    //         template: './index.tpl',
-    //         favicon: path.join(base, 'node_modules/gear-template/src/icon.png')
-    //     }
-    // },
     publicPath: process.env.CI_ENV || '',
     hash: true,
-    devServer: {
-        hostname: '0.0.0.0',
-        port: 8085,
-        log: false,
-        publicPath: '/'
-    },
     minimize: false,
-    // chunk: isProd ? {
-    //     'common': {
-    //         name: ['manifest']
-    //     }
-    // } : false,
     extractCSS: true,
     alias: config.alias,
     extends: ['vue2'],
@@ -57,10 +40,10 @@ if (!process.env.CI_ENV) {
     cooking.add('output.publicPath', '');
 }
 
-// cooking.add('loader.js', {
-//     test: /\.js$/,
-//     loader: 'babel-loader'
-// });
+cooking.add('loader.js', {
+    test: /\.js$/,
+    loader: 'babel-loader'
+});
 
 cooking.add('loader.md', {
     test: /\.md$/,
