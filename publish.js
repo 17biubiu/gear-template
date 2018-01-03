@@ -123,13 +123,14 @@ var wrap = function (render) {
 if (isProd) {
     cooking.add('externals.vue', 'Vue');
     cooking.add('externals.vue-router', 'VueRouter');
+    cooking.add('externals.element-ui', 'ELEMENT');
 }
 
 
 cooking.add('plugin.HtmlWebpackPlugin', new HtmlWebpackPlugin({
     filename: 'index.html',
     template: './index.tpl',
-    chunks: ['dll', 'docs'],
+    chunks: ['docs'],
     favicon: path.join(base, 'node_modules/gear-template/src/icon.png')
 }));
 
@@ -137,8 +138,8 @@ cooking.add('plugin.HtmlWebpackPlugin', new HtmlWebpackPlugin({
 const uploadPath = packageJson.name + path.sep + packageJson.version;
 
 cooking.add('plugin.GearPublishPlugin', new GearPublishPlugin({
-    submitUrl: 'http://10.4.233.175:7001/api/v1/components/update', //url,
-    // submitUrl: 'http://127.0.0.1:7001/api/v1/components/update',
+    // submitUrl: 'http://10.4.233.175:7001/api/v1/components/update', //url,
+    submitUrl: 'http://127.0.0.1:7001/api/v1/components/update',
     uploadUrl: uploadPath, //upload path
 }));
 

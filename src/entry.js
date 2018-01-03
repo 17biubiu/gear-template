@@ -2,7 +2,7 @@ import Vue from 'vue';
 import entry from './app';
 import VueRouter from 'vue-router';
 import Element from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+// import 'element-ui/lib/theme-chalk/index.css';
 import routes from './route.config';
 import demoBlock from './components/demo-block.vue';
 import MainFooter from './components/footer.vue';
