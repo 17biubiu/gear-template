@@ -61,7 +61,7 @@
 </style>
 
 <script>
-  import navConfig from '../nav.config.json';
+  import navConfig from '../nav.config';
 
   export default {
     data() {

@@ -1,4 +1,4 @@
-[{
+export default [{
     "name": "开发指南",
     "children": [{
       "path": "/installation",
@@ -9,4 +9,4 @@
     "name": "组件",
     "groups": []
   }
-]
+];

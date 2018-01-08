@@ -23,9 +23,12 @@ function convert(str) {
 
 cooking.set({
     entry: {
-        docs: path.join(base, 'node_modules/gear-template/src/entry.js')
+        // docs: path.join(base, 'node_modules/gear-template/src/entry.js')
+        docs: path.join(base, 'src/docs/index.js')
     },
     dist: './dist/',
+    // moduleName:"installMd",
+    // format: 'umd',
     publicPath: process.env.CI_ENV || '',
     hash: true,
     minimize: false,
@@ -135,11 +138,11 @@ cooking.add('plugin.HtmlWebpackPlugin', new HtmlWebpackPlugin({
 }));
 
 
-const uploadPath = packageJson.name + path.sep + packageJson.version;
+const uploadPath ='';
 
 cooking.add('plugin.GearPublishPlugin', new GearPublishPlugin({
-    // submitUrl: 'http://10.4.233.175:7001/api/v1/components/update', //url,
-    submitUrl: 'http://127.0.0.1:7001/api/v1/components/update',
+    submitUrl: 'http://10.4.233.175:7001/api/v1/components/update', //url,
+    // submitUrl: 'http://127.0.0.1:7001/api/v1/components/update',
     uploadUrl: uploadPath, //upload path
 }));
 

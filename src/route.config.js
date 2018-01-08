@@ -1,10 +1,11 @@
-import navConfig from './nav.config.json';
+import navConfig from './nav.config';
+
 
 import cmpNavConfig from '../../../src/nav.config.json';
 
 import Docs from './docs';
 
-import Docs_CMP from './docs/index-cmp';
+import Docs_CMP from '../../../src/docs';
 
 if (Array.isArray(navConfig[1].groups)) {
   navConfig[1].groups = cmpNavConfig.groups;
@@ -30,7 +31,7 @@ const LOAD_DOCS_MAP__CMP = path => {
 
 const loadDocs = function (path) {
   if (path === 'installation') {
-    return LOAD_DOCS_MAP(path);
+    return LOAD_DOCS_MAP(path)
   }
   return LOAD_DOCS_MAP__CMP(path);
 };
@@ -74,7 +75,6 @@ const registerRoute = (navConfig) => {
       name: 'component-' + (page.title || page.name),
       component: component.default || component
     };
-
     route[index].children.push(child);
   }
 

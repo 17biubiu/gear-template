@@ -188,7 +188,7 @@
 </template>
 <script>
 import bus from "../bus";
-import navsData from "../nav.config.json";
+import navsData from "../nav.config";
 import throttle from "throttle-debounce/throttle";
 
 export default {
